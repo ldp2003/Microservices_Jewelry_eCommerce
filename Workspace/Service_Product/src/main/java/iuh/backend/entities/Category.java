@@ -1,16 +1,20 @@
 package iuh.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "category")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +28,6 @@ public class Category {
     private String description;
 
     @OneToMany(mappedBy = "categoryid")
-    private Set<Product> products = new LinkedHashSet<>();
+    private List<Product> products = new ArrayList<>();
 
 }

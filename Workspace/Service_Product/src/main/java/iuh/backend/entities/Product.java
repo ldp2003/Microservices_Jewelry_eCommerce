@@ -1,5 +1,6 @@
 package iuh.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +17,7 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "product")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,6 +54,7 @@ public class Product {
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.SET_NULL)
     @JoinColumn(name = "categoryid")
+    @JsonIgnoreProperties({"products"})
     private Category categoryid;
 
     @Column(name = "createdat")

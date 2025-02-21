@@ -1,5 +1,6 @@
 package iuh.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,6 +20,7 @@ public class Productimage {
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "productid")
+    @JsonIgnoreProperties({"productimages"})
     private Product productid;
 
     @Column(name = "imageurl", nullable = false, length = Integer.MAX_VALUE)
