@@ -1,5 +1,6 @@
 package iuh.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -27,7 +28,10 @@ public class Collection {
     @Column(name = "description", length = Integer.MAX_VALUE)
     private String description;
 
-    @OneToMany(mappedBy = "collectionid")
-    private List<Collectionimage> collectionimages = new ArrayList<>();
+    @OneToMany(mappedBy = "collectionId")
+    private List<Collectionimage> collectionImages = new ArrayList<>();
+
+    @OneToMany(mappedBy = "collectionId")
+    private List<Product> products = new ArrayList<>();
 
 }

@@ -27,7 +27,7 @@ public class Category {
     @Column(name = "description", length = Integer.MAX_VALUE)
     private String description;
 
-    @OneToMany(mappedBy = "categoryid")
+    @OneToMany(mappedBy = "categoryId")
     private List<Product> products = new ArrayList<>();
 
 }

@@ -1,5 +1,6 @@
 package iuh.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -55,15 +56,24 @@ public class Product {
     @OnDelete(action = OnDeleteAction.SET_NULL)
     @JoinColumn(name = "categoryid")
     @JsonIgnoreProperties({"products"})
-    private Category categoryid;
+    private Category categoryId;
 
     @Column(name = "createdat")
-    private Instant createdat;
+    private Instant createdAt;
 
     @Column(name = "updatedat")
-    private Instant updatedat;
+    private Instant updatedAt;
 
-    @OneToMany(mappedBy = "productid")
-    private List<Productimage> productimages = new ArrayList<>();
+    @OneToMany(mappedBy = "productId")
+    private List<Productimage> productImages = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
+    @JoinColumn(name = "collectionid")
+    @JsonIgnoreProperties({"products", "collectionImages"})
+    private Collection collectionId;
+
+    @Column(name = "size")
+    private String size;
 
 }
