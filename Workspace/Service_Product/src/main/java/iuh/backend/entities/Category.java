@@ -28,6 +28,7 @@ public class Category {
     private String description;
 
     @OneToMany(mappedBy = "categoryId")
+    @JsonIgnoreProperties({"categoryId"})
     private List<Product> products = new ArrayList<>();
 
 }

@@ -17,7 +17,6 @@ public class ProductResource {
 
     @GetMapping("/listProduct")
     public List<Product> showProductList() {
-        System.out.println("showProductList" + productService.getAllProducts());
         return productService.getAllProducts();
     }
 

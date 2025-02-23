@@ -65,12 +65,13 @@ public class Product {
     private Instant updatedAt;
 
     @OneToMany(mappedBy = "productId")
+    @JsonIgnoreProperties({"productId"})
     private List<Productimage> productImages = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.SET_NULL)
     @JoinColumn(name = "collectionid")
-    @JsonIgnoreProperties({"products", "collectionImages"})
+    @JsonIgnoreProperties({"products"})
     private Collection collectionId;
 
     @Column(name = "size")

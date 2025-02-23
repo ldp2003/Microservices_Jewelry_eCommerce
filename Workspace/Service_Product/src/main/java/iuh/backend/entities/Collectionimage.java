@@ -21,7 +21,6 @@ public class Collectionimage {
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "collectionid")
-    @JsonIgnore
     private Collection collectionId;
 
     @Column(name = "imageurl", nullable = false, length = Integer.MAX_VALUE)

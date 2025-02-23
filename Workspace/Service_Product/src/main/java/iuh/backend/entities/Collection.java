@@ -29,6 +29,7 @@ public class Collection {
     private String description;
 
     @OneToMany(mappedBy = "collectionId")
+    @JsonIgnoreProperties({"collectionId"})
     private List<Collectionimage> collectionImages = new ArrayList<>();
 
     @OneToMany(mappedBy = "collectionId")
