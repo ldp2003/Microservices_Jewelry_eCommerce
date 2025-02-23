@@ -71,7 +71,7 @@ public class Product {
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.SET_NULL)
     @JoinColumn(name = "collectionid")
-    @JsonIgnoreProperties({"products"})
+    @JsonIgnoreProperties({"products", "collectionImages"})
     private Collection collectionId;
 
     @Column(name = "size")
