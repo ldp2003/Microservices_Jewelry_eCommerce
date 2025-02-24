@@ -31,4 +31,5 @@ public class CollectionService {
     public List<Collection> getAllCollections() {
         return collectionRepository.findAll();
     }
+
 }
