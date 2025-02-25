@@ -12,12 +12,12 @@ public class CollectionService {
     @Autowired
     private CollectionRepository collectionRepository;
 
-    public void addCollection(Collection collection) {
-        collectionRepository.save(collection);
+    public Collection addCollection(Collection collection) {
+        return collectionRepository.save(collection);
     }
 
-    public void updateCollection(Collection collection) {
-        collectionRepository.save(collection);
+    public Collection updateCollection(Collection collection) {
+        return collectionRepository.save(collection);
     }
 
     public void deleteCollection(Collection collection) {
