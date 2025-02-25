@@ -26,7 +26,6 @@ public class ProductUpdateDto implements Serializable {
     String color;
     String brand;
     Integer categoryId;
-    Instant createdAt;
     List<Integer> productImageIds;
     Integer collectionId;
     String size;

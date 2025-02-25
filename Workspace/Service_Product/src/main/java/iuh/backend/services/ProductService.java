@@ -14,6 +14,8 @@ public class ProductService {
     private ProductRepository productRepository;
 
     public Product addProduct(Product product) {
+        product.setCreatedAt(Instant.now());
+        product.setUpdatedAt(Instant.now());
         return productRepository.save(product);
     }
 
